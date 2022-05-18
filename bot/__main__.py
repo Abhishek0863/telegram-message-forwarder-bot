@@ -6,9 +6,7 @@ from bot import LOG, app, advance_config, chats_data, from_chats, to_chats, \
                 remove_strings, replace_string, sudo_users
 from bot.helper.utils import get_formatted_chat
 
-LOG.info("Welcome, this is the telegram-message-forwarder-bot. main routine...")
-
-@app.on_message(filters.chat(from_chats) & filters.incoming)
+@app.on_message(filters.chat(from_chats) & filters.incoming & filters.regex("loot"))
 def work(client, message):
     caption = None
     msg = None
